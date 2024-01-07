@@ -4,13 +4,12 @@ import "./styles/markdown.scss";
 import "./styles/highlight.scss";
 import { getClientConfig } from "./config/client";
 import { type Metadata } from "next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { getServerSideConfig } from "./config/server";
 
-const serverConfig = getServerSideConfig();
+
+
 
 export const metadata: Metadata = {
-  title: "NextChat",
+  title: "ChatGPT",
   description: "Your personal ChatGPT Chat Bot.",
   viewport: {
     width: "device-width",
@@ -22,7 +21,7 @@ export const metadata: Metadata = {
     { media: "(prefers-color-scheme: dark)", color: "#151515" },
   ],
   appleWebApp: {
-    title: "NextChat",
+    title: "ChatGPT",
     statusBarStyle: "default",
   },
 };
@@ -41,11 +40,6 @@ export default function RootLayout({
       </head>
       <body>
         {children}
-        {serverConfig?.isVercel && (
-          <>
-            <SpeedInsights />
-          </>
-        )}
       </body>
     </html>
   );
